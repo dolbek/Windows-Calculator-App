@@ -3,12 +3,12 @@
 ref class Calculator{
 
 public:
-	Calculator(int maxDec);			//Constructor
-	string calculate(string calc);	//Public method to calculate the value of calculation as string
-	void setMemory(string mem);		//Set memory
-	string getMemory();				//Get memory
-	void memoryAdd(string val);		//Add to memory
-	void memorySub(string val);		//Subtract from memory
+	explicit Calculator(int maxDec);			//Constructor
+	string calculate(const string& calc);	//Public method to calculate the value of calculation as string
+	void setMemory(const string& mem);		//Set memory
+	string& getMemory();				//Get memory
+	void memoryAdd(const string& val);		//Add to memory
+	void memorySub(const string& val);		//Subtract from memory
 	bool hasMemory();				//Return true if there is something stored in memory
 	bool hasError();				//Return true if there is an error
 	void clearError();				//Clears any errors
@@ -18,10 +18,9 @@ public:
 	Order getOrder();				//Returns the order of operations
 	
 private:
-	double calculate(vector<string> postfix);	//Calculates the value of a postfix expression
-	bool isMathInteger(double num);				//Return true if the number is a mathematical integer
-	bool isNumber(string str);					//Return true if the string is a number
-	string formatOutput(double num);			//Return the string equivalent of the passed double
+	double calculate(const vector<string>& postfix);	//Calculates the value of a postfix expression
+	bool isNumber(const string& str);					//Return true if the string is a number
+	string& formatOutput(double num);			//Return the string equivalent of the passed double
 
 	//Some status tracking variables
 	ErrorType errorType{ ErrorType::NONE };	//Type of current error
