@@ -7,9 +7,9 @@ using namespace std;
 
 static class Formatter{
 public:
-	vector<string> generatePostfix(string& str);	//Convert the given string to postfix notation
+	static vector<string> generatePostfix(const string& str, Order ord);	//Convert the given string to postfix notation
 
 private:
-	int operatorPrecedence(Operator op);	//Returns the precedence of the given operator
+	static int operatorPrecedence(char c, Order ord);	//Returns the precedence of the given operator
 };
 
